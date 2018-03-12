@@ -2,6 +2,21 @@
 Kotlin编写的事件总线库
 使用步骤：
 
+添加库：
+
+1、在你项目下的build.gradle添加仓库引用
+
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+    
+2、在你APP模块下添加依赖
+    
+    compile 'com.github.c297131019:JBusTest:1.0'
+
 1、先给当前类注册，比如Activity
 
      override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,24 +62,4 @@ Kotlin编写的事件总线库
 
      override fun <T> onMsg(s: T) {
 
-            (s as? BusBean<String>)?.let {
-
-                when(s.t){
-                    //判断T的内容
-                }
-
-                when(s.code){
-                    //判断code的内容
-                }
-
-                when(s.msg){
-                    //判断Msg的内容
-                }
-
-            }
-
-     }
-
-2、这里的目标不单单是Android常用的四大组件，也可以是任意一个类，
-   只要这个类有初始化和销毁功能即可，必须要销毁，否则会造成内存泄漏
-   但库是基于Android的API开发的，所以也仅支持Android
+            (s as? BusBean<String>)?.l
