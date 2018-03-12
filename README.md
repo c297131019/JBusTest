@@ -51,7 +51,7 @@ Kotlin编写的事件总线库
 1、自定义一个消息载体，比如：
 
     //这种格式很常见了，网络请求数据最外层一般都用这种格式
-    
+
     data class BusBean<T>(
                     var code: Int = 0 ,
                     var t : T? = null ,
@@ -62,4 +62,24 @@ Kotlin编写的事件总线库
 
      override fun <T> onMsg(s: T) {
 
-            (s as? BusBean<String>)?.l
+            (s as? BusBean<String>)?.let {
+
+                when(s.t){
+                    //判断T的内容
+                }
+
+                when(s.code){
+                    //判断code的内容
+                }
+
+                when(s.msg){
+                    //判断Msg的内容
+                }
+
+            }
+
+     }
+
+2、这里的目标不单单是Android常用的四大组件，也可以是任意一个类，
+   只要这个类有初始化和销毁功能即可，必须要销毁，否则会造成内存泄漏
+   但库是基于Android的API开发的，所以也仅支持Android
