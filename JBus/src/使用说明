@@ -22,9 +22,11 @@
     }
 
 4.1、给指定目标发送消息(只有注册过的目标才能收到消息)
+
     JBus.sendMsg(MainActivity::class.java,"Hello Main")
 
 4.2、给所有目标发送消息(只有注册过的目标才能收到消息)
+
     JBus.sendMsg("All Hello")
 
 更多使用建议：
@@ -32,6 +34,7 @@
 1、自定义一个消息载体，比如：
 
     //这种格式很常见了，网络请求数据最外层一般都用这种格式
+
     data class BusBean<T>(
                     var code: Int = 0 ,
                     var t : T? = null ,
