@@ -1,0 +1,18 @@
+1、添加字段注解
+	通过指定目标发送指定对象。大概的用法是
+	
+	@BusField
+	String name;
+
+	send(Xxx.class,"name","JASON")
+
+2、添加方法注解或将原来的register替换成注解方式，或两者共存
+	在编译时期扫面所有被注解的类的方法
+	并且获取被注解的对象，如果是四大组件则强转拿到生命周期，在销毁的时候销毁引用，避免内存泄漏，和Rxlifecycler一样
+	
+	@BusFunction
+	public void aaa(Object o){
+	
+	}
+
+3、像广播一样添加粘滞事件
